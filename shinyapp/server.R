@@ -36,10 +36,7 @@ shinyServer(function(input, output) {
   output$mpgPlot <- renderPlot({
     with(mpgData, {
       plot(as.formula(formulaTextModel()))
-      abline(fit(), col=2)
+      abline(fit(), col='red')
     })
   })
-  
-  
-  
 })
