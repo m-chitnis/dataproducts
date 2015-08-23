@@ -27,15 +27,19 @@ shinyServer(function(input, output) {
     formulaText()
   })
   
-  ## Boxplot
-  output$mpgBoxPlot <- renderPlot({
-    boxplot(as.formula(formulaText()), 
-            data = mpgData)
-  })
-  
   ## Liner model output
   output$fit <- renderPrint({
     summary(fit())
   })
+  
+  ## Liner model plot
+  output$mpgPlot <- renderPlot({
+    with(mpgData, {
+      plot(as.formula(formulaTextModel()))
+      abline(fit(), col=2)
+    })
+  })
+  
+  
   
 })

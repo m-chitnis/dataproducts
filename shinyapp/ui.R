@@ -6,7 +6,7 @@ shinyUI(
              tabPanel("User Application",
                       fluidPage(
                         ## Sidebarpanel for getting input
-                        titlePanel("The relationship between key variables and miles per gallon (MPG)"),
+                        titlePanel("The relationship between variables and miles per gallon (MPG)"),
                         sidebarLayout(
                           sidebarPanel(
                             selectInput("variable", "Variable:",
@@ -18,11 +18,11 @@ shinyUI(
                             submitButton("Submit")
                           ),
                           
-                          ## Mainpanel for output
+                          ## Mainpanel for output of plot and summary of regression
                           mainPanel(
                             h3(textOutput("caption")),
-                            h4("BoxPlot"),
-                            plotOutput("mpgBoxPlot"),
+                            h4("Regression Model Plot"),
+                            plotOutput("mpgPlot"),
                             h4("Linear Regression Model Summary"),
                             verbatimTextOutput("fit")
                           )
@@ -34,7 +34,7 @@ shinyUI(
              tabPanel("User Documentation",    
                       h4("Steps to run the application"),
                       p("On the 'User Application' tab, select the varibale first and then click 'Submit'."),
-                      p("The BoxPlot Linear Regression Model Summary are displayed in the Main Panel.")
+                      p("The  Linear Regression Model Plot and Summary are displayed in the Main Panel.")
              ),                  
             
              ## Technical and Data
